@@ -1,0 +1,16 @@
+.\objects\gen_data_test.o: src\Test\gen_data_test.c
+.\objects\gen_data_test.o: src\Test\gen_data_test.h
+.\objects\gen_data_test.o: .\src\file.h
+.\objects\gen_data_test.o: ..\VTFirewall_Lib\src\Firewall\fw_user_if.h
+.\objects\gen_data_test.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
+.\objects\gen_data_test.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\gen_data_test.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+.\objects\gen_data_test.o: .\src\eeprom\eeprom.h
+.\objects\gen_data_test.o: .\src\STMLib\System\stm32f10x.h
+.\objects\gen_data_test.o: .\src\STMLib\System\core_cm3.h
+.\objects\gen_data_test.o: .\src\STMLib\System\system_stm32f10x.h
+.\objects\gen_data_test.o: .\src\STMLib\System\stm32f10x_conf.h
+.\objects\gen_data_test.o: .\src\STMLib\StdPeriph_Driver\inc\stm32f10x_gpio.h
+.\objects\gen_data_test.o: .\src\STMLib\System\stm32f10x.h
+.\objects\gen_data_test.o: .\src\STMLib\StdPeriph_Driver\inc\stm32f10x_rcc.h
+.\objects\gen_data_test.o: .\src\STMLib\StdPeriph_Driver\inc\stm32f10x_flash.h

@@ -1,0 +1,30 @@
+<h2>Sign up</h2>
+
+<div class = “row”>
+   <div class = “col-xs-2”>
+     <%= form_for(resource, as: resource_name, url: registration_path(resource_name))do |f| %>
+	<%= f.label :first_name%>
+     <%= f.text_field :first_name, class: 'form-control' %>
+
+	<%= f.label :last_name%>
+     <%= f.text_field :last_name, class: 'form-control' %>
+
+     <%= f.label :email,required: true%>
+     <%= f.email_field :email, class: 'form-control' %>
+
+	<%= f.label :password,required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length)%>
+      <%= f.password_field :password, class: 'form-control' %>
+
+	<%= f.label :password_confirmation,required: true%>
+     <%= f.password_field :password_confirmation, class: 'form-control' %>
+
+<%= f.label :premium %>
+ <%= f.check_box :premium %>
+
+ <br>
+ <%= f.submit "Create my account", class: "btn btn-primary" %>
+ <% end %>
+ <br>
+ <%= render "devise/shared/links" %>
+  </div>
+</div>

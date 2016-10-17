@@ -1,0 +1,31 @@
+
+
+<h1>Listing Jobs</h1>
+  <%= form_tag jobs_path, :method=> 'get' do %>
+  <%= text_field_tag :search, params[:search] %>
+  <%= submit_tag "search" %>
+  <% end %>
+
+ <%= link_to "Advanced Search", new_search_path %>
+
+<% if current_user.premium %>
+  <%= button_to "New Job", new_job_path, :method => :get %>
+<% end %>
+
+
+  <% @activities.each do |a| %>
+    <h2><%= link_to a.title, job_path(a) %></h2>
+    <h4><%= a.company %></h4>
+    <%= a.description %>
+	<br>
+    <td><%= pluralize(a.votes.count, 'votes') %></td>
+ <td><%= button_to '+1', upvote_job_path(a), method: :post %></td>
+    An article that is currently deleted was added.
+  <br>
+  Posted <%= time_ago_in_words(a.created_at) %> ago
+<% end %>
+<hr>
+
+
+
+<br>

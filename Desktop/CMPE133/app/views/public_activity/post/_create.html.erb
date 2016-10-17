@@ -1,0 +1,13 @@
+
+  <% if a.trackable %>
+    <h2><%= link_to a.trackable.status, post_path(a.trackable) %></h2>
+    <h4><%= User.find(a.trackable.user_id).first_name + " " + User.find(a.trackable.user_id).last_name %></h4>
+	<br>
+
+  <% else %>
+    An article that is currently deleted was added.
+  <% end %>
+  <br>
+  Posted <%= time_ago_in_words(a.created_at) %> ago
+
+<hr>

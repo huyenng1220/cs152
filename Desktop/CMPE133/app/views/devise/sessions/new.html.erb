@@ -1,0 +1,47 @@
+<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+<div>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-4">
+          <div id="wrapper">
+            <img src="/assets/WIR3D_3png.png" class="company logo" alt="WIR3D" class"profile photo">
+          </div>
+      </div>
+    <div class="col-sm-8">
+        <h1>Sign in to WIR3D</h1>
+      <div id="login">
+        <form class="form-inline" >
+        <%= f.input :email, required: false, autofocus: true %>
+        <%= f.input :password, required: false %>
+      <div class="form-actions">
+        <%= f.button :submit, "Sign in" %>
+      </div>
+      <div class="render">
+        <%= render "devise/shared/links" %>
+      </div>
+        </form>
+      </div>
+    </div>
+    </div>
+  </div>
+
+</div>
+<% end %>
+
+  <!-- footer -->
+  <div class="container_footer">
+    <footer>
+      <ul>
+        <li><strong>&copy; WIR3D 2016</strong><a href=""></a></li>
+        <li><strong>Contact: KitoMamCamBoi</strong><a href=""></a></li>
+        <li><strong>About Us</strong><a href=""></a></li>
+      </ul>
+    </footer>
+  </div>
+  <!-- end footer -->
+
+
+
+
+
+

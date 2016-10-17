@@ -1,0 +1,2 @@
+--create .\Objects\vtfirewall.lib
+.\objects\fw_private.o

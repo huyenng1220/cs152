@@ -1,0 +1,15 @@
+
+  <% if a.trackable %>
+    <h2><%= link_to a.trackable.title, job_path(a.trackable) %></h2>
+    <h4><%= a.trackable.company %></h4>
+    <%= a.trackable.description %>
+	<br>
+    <td><%= pluralize(a.trackable.votes.count, 'votes') %></td>
+ <td><%= button_to '+1', upvote_job_path(a.trackable), method: :post %></td>
+  <% else %>
+    An article that is currently deleted was added.
+  <% end %>
+  <br>
+  Posted <%= time_ago_in_words(a.created_at) %> ago
+
+<hr>

@@ -1,0 +1,21 @@
+<h1> Advanced Search </h1>
+
+<%= form_for @search do |f| %>
+		<div class = "field">
+			<%= f.label :company %><br />
+			<%= f.text_field :company %>
+		</div>
+
+		<div class = "field">
+			<%= f.label :title %>
+			<%= f.text_field :title %>
+		</div>
+
+		<div class = "field">
+			<%= f.label :description %>
+			<%= f.text_field :description %>
+		</div>
+
+		<div class = "action"><%= f.submit "Search" %></div>
+
+<% end %>
