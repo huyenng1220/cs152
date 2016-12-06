@@ -1,9 +1,0 @@
-development:
-  cloud_name: "stephencheung"
-  api_key: "169922834481936"
-  api_secret: "-g6NlAjQlsXmimNrduxa-wkQWqQ"
-
-production:
-  cloud_name: "stephencheung"
-  api_key: "169922834481936"
-  api_secret: "-g6NlAjQlsXmimNrduxa-wkQWqQ"
