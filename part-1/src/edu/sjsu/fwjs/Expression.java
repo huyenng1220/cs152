@@ -72,44 +72,44 @@ class BinOpExpr implements Expression {
 
     @SuppressWarnings("incomplete-switch")
     public Value evaluate(Environment env) {
-    	int v1 = ((IntVal) e1.evaluate(env)).toInt();
-    	int v2 = ((IntVal) e2.evaluate(env)).toInt();
-    	Value result;
-    	
+        Value v1 = e1.evaluate(env);
+        Value v2 = e2.evaluate(env);
+        Value result;
+        
         switch (op) {
-	        case ADD:
-	        	result = new IntVal(v1 + v2);
-	        	break;
-	        case SUBTRACT:
-	        	result = new IntVal(v1 - v2);
-	        	break;
-	        case MULTIPLY:
-	        	result = new IntVal(v1 * v2);
-	        	break;
-	        case DIVIDE:
-	        	result = new IntVal(v1 / v2);
-	        	break;
-	        case MOD:
-	        	result = new IntVal(v1 % v2);
-	        	break;
-	        case GT:
-	        	result = new BoolVal(v1 > v2);
-	        	break;
-	        case GE:
-	        	result = new BoolVal(v1 >= v2);
-	        	break;
-	        case LT:
-	        	result = new BoolVal(v1 < v2);
-	        	break;
-	        case LE:
-	        	result = new BoolVal(v1 <= v2);
-	        	break;
-	        case EQ:
-	        	result = new BoolVal(v1 == v2);
-	        	break;
-	        default:
-        		result = new BoolVal(false);
-	        	break;
+            case ADD:
+                result = new IntVal(((IntVal) v1).toInt() + ((IntVal) v2).toInt());
+                break;
+            case SUBTRACT:
+                result = new IntVal(((IntVal) v1).toInt() - ((IntVal) v2).toInt());
+                break;
+            case MULTIPLY:
+                result = new IntVal(((IntVal) v1).toInt() * ((IntVal) v2).toInt());
+                break;
+            case DIVIDE:
+                result = new IntVal(((IntVal) v1).toInt() / ((IntVal) v2).toInt());
+                break;
+            case MOD:
+                result = new IntVal(((IntVal) v1).toInt() % ((IntVal) v2).toInt());
+                break;
+            case GT:
+                result = new BoolVal(v1.toString().compareTo(v2.toString()) > 0);
+                break;
+            case GE:
+                result = new BoolVal(v1.toString().compareTo(v2.toString()) >= 0);
+                break;
+            case LT:
+                result = new BoolVal(v1.toString().compareTo(v2.toString()) < 0);
+                break;
+            case LE:
+                result = new BoolVal(v1.toString().compareTo(v2.toString()) <= 0);
+                break;
+            case EQ:
+                result = new BoolVal(v1.toString().equals(v2.toString()));
+                break;
+            default:
+                result = new BoolVal(false);
+                break;
         }
         env.updateVar(result.toString(), result);
         return result;
@@ -131,10 +131,10 @@ class IfExpr implements Expression {
     }
     public Value evaluate(Environment env) {
         if (((BoolVal) cond.evaluate(env)).toBoolean()) {
-        	return thn.evaluate(env);
+            return thn.evaluate(env);
         }
         else {
-        	return els.evaluate(env);
+            return els != null ? els.evaluate(env) : null;
         }
     }
 }
@@ -150,9 +150,9 @@ class WhileExpr implements Expression {
         this.body = body;
     }
     public Value evaluate(Environment env) {
-    	Value result = new BoolVal(false);
+        Value result = new BoolVal(false);
         while (((BoolVal) cond.evaluate(env)).toBoolean()) {
-        	result = body.evaluate(env);
+            result = body.evaluate(env);
         }
         return result;
     }
@@ -236,10 +236,10 @@ class FunctionAppExpr implements Expression {
         this.args = args;
     }
     public Value evaluate(Environment env) {
-    	ClosureVal closure = (ClosureVal) f.evaluate(env);
+        ClosureVal closure = (ClosureVal) f.evaluate(env);
         List<Value> evaluatedArgs = new ArrayList<>();
         for (Expression e : args) {
-        	evaluatedArgs.add(e.evaluate(env));
+            evaluatedArgs.add(e.evaluate(env));
         }
         return closure.apply(evaluatedArgs);
     }
